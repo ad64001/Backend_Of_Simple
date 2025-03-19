@@ -1,5 +1,5 @@
 ﻿using Autofac;
-using Extensions.IAttributes;
+using Backend.Extensions.IAttributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Extensions.AutofacRegister
+namespace Backend.Extensions.AutofacRegister
 {
     public class IAutofacRegister : Autofac.Module
     {

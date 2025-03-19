@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Backend.Common\Backend.Common.csproj" />
     <ProjectReference Include="..\Backend.Model\Backend.Model.csproj" />
   </ItemGroup>
 </Project>

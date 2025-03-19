@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Extensions.IAttributes
+namespace Backend.Extensions.IAttributes
 {
     [AttributeUsage(AttributeTargets.Class)]
     public class AutoInjectAttribute : Attribute

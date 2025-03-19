@@ -2,10 +2,10 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Backend.Extensions;
+using Backend.Extensions.AutofacRegister;
 using Backend.IServices;
 using Backend.Repository.Base;
 using Backend.Services;
-using Extensions.AutofacRegister;
 
 namespace Backend
 {
