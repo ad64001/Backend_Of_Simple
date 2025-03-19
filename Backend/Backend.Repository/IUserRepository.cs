@@ -1,4 +1,4 @@
-﻿using Backend.Model;
+﻿using Backend.Model.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +9,6 @@ namespace Backend.Repository
 {
     public interface IUserRepository
     {
-        Task<List<User>> Query();
+        Task<List<Users>> Query();
     }
 }

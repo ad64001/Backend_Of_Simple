@@ -4,6 +4,6 @@ namespace Backend.IServices
 {
     public interface IUserService
     {
-        Task<List<UserVo>> Query();
+        string Query();
     }
 }

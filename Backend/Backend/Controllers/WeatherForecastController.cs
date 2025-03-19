@@ -16,12 +16,12 @@ namespace Backend.Controllers
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
-        private readonly IBaseService<Role,RoleVo> baseService;
+        private readonly IUserService userService;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger, IBaseService<Role, RoleVo> baseService)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger,IUserService userService)
         {
             _logger = logger;
-            this.baseService = baseService;
+            this.userService = userService;
         }
 
         [HttpGet(Name = "GetUserQ")]
@@ -32,8 +32,8 @@ namespace Backend.Controllers
             //return userVos;
 
             //var roleService = new BaseService<Role, RoleVo>(_mapper);
-            var task = await baseService.Query();
-            return task;
+
+            return userService.Query();
         }
     }
 }
