@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Backend.Model;
 
 namespace Backend.Extensions
 {
