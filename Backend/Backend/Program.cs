@@ -3,9 +3,8 @@ using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Backend.Extensions;
 using Backend.Extensions.AutofacRegister;
-using Backend.IServices;
-using Backend.Repository.Base;
-using Backend.Services;
+using Backend.Extensions.DB;
+
 
 namespace Backend
 {
@@ -26,6 +25,10 @@ namespace Backend
                 // container.RegisterType<ManualService>().As<IManualService>();
             });
 
+            // зЂВс SqlSugar ЗўЮё
+            // зЂВс SqlSugarDbContext
+            builder.Services.AddSingleton<SqlSugarDbContext>(sp =>
+                new SqlSugarDbContext(builder.Configuration));
             // Add services to the container.
 
             builder.Services.AddControllers();
@@ -39,6 +42,7 @@ namespace Backend
             //builder.Services.AddScoped(typeof(IBaseService<,>),typeof(BaseService<,>));
 
             var app = builder.Build();
+            DatabaseInitializer.Initialize(app.Services);
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())

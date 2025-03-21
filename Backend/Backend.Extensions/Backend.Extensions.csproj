@@ -7,13 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Autofac" Version="8.2.0" />
-    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="10.0.0" />
+
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Backend.Common\Backend.Common.csproj" />
-    <ProjectReference Include="..\Backend.Model\Backend.Model.csproj" />
   </ItemGroup>
 
 </Project>
