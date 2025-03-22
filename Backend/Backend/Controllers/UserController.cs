@@ -32,5 +32,7 @@ namespace Backend.Controllers
             db.Insertable(user).ExecuteCommand();
             return Ok("User added successfully");
         }
+
+
     }
 }

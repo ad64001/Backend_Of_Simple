@@ -1,9 +1,13 @@
 
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using Backend.Common;
 using Backend.Extensions;
 using Backend.Extensions.AutofacRegister;
 using Backend.Extensions.DB;
+using Backend.Extensions.Json;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 
 
 namespace Backend
@@ -14,6 +18,10 @@ namespace Backend
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            // 注册配置选项（启用启动时验证）
+            builder.Services.AddApplicationOptions(
+                configuration: builder.Configuration,
+                validateOnStart: true);  // 生产环境建议开启
             //这里是依赖注入哦Ciallo
             builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
             builder.Host.ConfigureContainer<ContainerBuilder>(container =>
@@ -27,8 +35,13 @@ namespace Backend
 
             // 注册 SqlSugar 服务
             // 注册 SqlSugarDbContext
-            builder.Services.AddSingleton<SqlSugarDbContext>(sp =>
-                new SqlSugarDbContext(builder.Configuration));
+            // 正确注册方式
+            builder.Services.AddSingleton<SqlSugarDbContext>(serviceProvider =>
+            {
+                var options = serviceProvider.GetRequiredService<IOptions<SqlSugarOptions>>();
+                return new SqlSugarDbContext(options);
+            });
+
             // Add services to the container.
 
             builder.Services.AddControllers();
