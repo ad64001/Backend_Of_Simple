@@ -20,7 +20,8 @@ namespace Backend.Repository.UserRe
         }
         public Task AddUserAsync(UserRole userRole)
         {
-            throw new NotImplementedException();
+            Console.WriteLine(userRole.RoleId);
+            return null;
         }
 
         public Task DeleteUserAsync(int id)
