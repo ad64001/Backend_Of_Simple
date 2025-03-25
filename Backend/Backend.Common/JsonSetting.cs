@@ -10,6 +10,9 @@ namespace Backend.Common
 {
     public class JsonSetting
     {
+        /// <summary>
+        /// 不用
+        /// </summary>
     }
     /// <summary>
     /// 数据库连接字符串配置选项

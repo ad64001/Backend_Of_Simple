@@ -10,4 +10,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Backend.Services\Backend.Services.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
 </Project>
